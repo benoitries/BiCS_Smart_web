@@ -1,0 +1,29 @@
+#bics_brand_2 {
+background-image:url(../../assets_index/img/bics.png); 
+  height: 125px;
+  background-color: initial;
+  border: 1px solid;
+}
+
+#login_div {
+  margin-top:13%;
+  margin-left:35%;
+  width:600px;
+  height:400px;
+  background-color:white;
+  border:1px solid;
+}
+
+#login_h1 {
+  text-align:center;
+  color:white;
+  background-color:rgba(0,151,170,1);
+  font-size:25px;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-image: url(../../assets_index/img/bics.png);
+  background-repeat:repeat;
+}
+

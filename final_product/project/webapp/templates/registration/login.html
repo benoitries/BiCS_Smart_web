@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href={% static "assets_login/bootstrap/css/bootstrap.min.css" %}>
+    <link rel="stylesheet" href={% static "assets_login/css/Footer-Dark.css" %}>
+    <link rel="stylesheet" href={% static "assets_login/css/styles.css" %}>
+</head>
+
+<body>
+    <div id="bics_brand_2">
+		<div class="container">
+			<img class="logo" src={% static "assets_index/img/bics_logo.gif" %} style="height:123px; margin-left:-1.5%"/>
+		</div>
+	</div>
+    <div id="login_div">
+        <h1 id="login_h1">Login</h1>
+		<form method="post" action="{% url 'login' %}">
+		{% csrf_token %}
+		<br>
+		<br>
+		<div style="margin-left:130px; width:500px">
+		  <td>Username:</td>
+		  <td>{{ form.username }}</td>
+		</div>
+		<div style="margin-left:135px; width:500px; margin-top:5px;">
+		  <td>Password:</td>
+		  <td>{{ form.password }}</td>
+		</div>
+		{% block content %}
+
+		{% if form.errors %}
+		<p>Your username and password didn't match. Please try again.</p>
+		{% endif %}
+		{% endblock %}
+		<div style="margin-left:275px;">
+		  <input type="submit" value="login" />
+		  <input type="hidden" name="next" value="{{ next }}" />
+		</div>
+		</form>
+		
+		<br>
+		<br>
+		<br>
+		<a href="http://127.0.0.1:8000/" style="margin-left:130px; width:500px">Want to go back to the homepage ? Click me</a>
+    </div>
+    <script src={% static "assets_login/js/jquery.min.js" %}></script>
+    <script src={% static "assets_login/bootstrap/js/bootstrap.min.js" %}></script>
+</body>
+
+</html>

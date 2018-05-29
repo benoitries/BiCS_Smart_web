@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charts page</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <link rel="stylesheet" href={% static "assets_charts/bootstrap/css/bootstrap.min.css" %}>
+    <link rel="stylesheet" href={% static "assets_charts/css/Footer-Dark.css" %}>
+    <link rel="stylesheet" href={% static "assets_charts/css/styles.css" %}>
+</head>
+
+<body>
+    <div id="bics_brand">
+		<div class="container">
+			<img class="logo" src={% static "assets_index/img/bics_logo.gif" %} style="height:123px; margin-left:-1.5%"/>
+		</div>
+	</div>
+    <nav class="navbar navbar-light navbar-expand-md" id="navbar_box">
+        <div class="container-fluid"><a class="navbar-brand" href="#"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item" role="presentation"><a class="nav-link" style="color:white; margin-top: -13%;height: 146%;" href="http://127.0.0.1:8000/" id="Charts">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" style="color:white; margin-top: -13%;height: 146%; background-color:rgba(237,23,79,1);" href="http://127.0.0.1:8000/charts/" id="Home">Charts</a></li>
+                    {% if user.is_authenticated  %}
+					<li class="nav-item" role="presentation"><a class="nav-link nav_items" style="color:white; margin-top: -13%;height: 146%;" href="http://127.0.0.1:8000/accounts/logout/">Logout</a></li>
+					{% else %}
+					<li class="nav-item" role="presentation"><a class="nav-link nav_items" style="color:white; margin-top: -13%;height: 146%;" href="http://127.0.0.1:8000/accounts/login/">Login</a></li>
+					{% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="txt_div">
+            <p id="txt_p"> <br>This page contains the charts of the values measured by the smart devices of the smart garden. Each chart represents the 31 most recently measured values of a unique smart device.</p>
+        </div>
+		{% for x,y in sensors.items %}
+        <div class="row">
+            <div class="col">
+                <div id="chart_div">
+                    <h1 id="chart_h1" style="background-color:rgba(245,245,245,0.96)">{{x}}'s chart</h1>
+                    <div id="chart">
+					<canvas id="myChart{{y}}" style="width:100%; height:100%"></canvas>
+					</div>
+                </div>
+            </div>
+        </div>
+		{% if y == 0 %}
+		<script src={% static "data/data.js" %}></script>
+		{% else %}
+		<script src={% static "data/data{{y+1}}.js" %}></script>
+		{% endif %}
+		{% endfor %}
+		
+    </div>
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row" id="footer_row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Quick links</h3>
+                        <ul>
+                            <li><a href="http://127.0.0.1:8000/">Homepage</a></li>
+                            <li><a href="http://127.0.0.1:8000/charts">Charts</a></li>
+							{% if user.is_authenticated  %}
+                            <li><a href="http://127.0.0.1:8000/accounts/logout/">Logout</a></li>
+							{% else %}
+							<li><a href="http://127.0.0.1:8000/accounts/login/">Login</a></li>
+							{% endif %}
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About us</h3>
+                        <ul>
+                            <li><a href="http://www.bics.lu/">BiCS' website</a></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+	<script src={% static "data/data.js" %}></script>
+	<script src={% static "data/data2.js" %}></script>
+	<script src={% static "data/data3.js" %}></script>
+	<script src={% static "data/data4.js" %}></script>
+	<script src={% static "data/data5.js" %}></script>
+    <script src={% static "assets_charts/js/jquery.min.js" %}></script>
+    <script src={% static "assets_charts/bootstrap/js/bootstrap.min.js" %}></script>
+</body>
+
+</html>

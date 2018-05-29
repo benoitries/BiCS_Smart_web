@@ -1,0 +1,84 @@
+#bics_brand {
+  background-image:url(../../assets_index/img/bics.png); 
+  height: 125px;
+  background-color: initial;
+  border: 1px solid;
+}
+
+#navbar_box {
+  background-color:rgba(0,151,170,1);
+  color:white;
+}
+
+#navcol-1 {
+  margin-left:43%;
+}
+
+#Home {
+  background-color:rgba(237,23,79,1);
+  margin-top:-13%;
+  height:140%;
+  color:white;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#chart_div {
+  height:700px;
+  background-color:white;
+  border:1px solid;
+  margin-bottom:1%;
+}
+
+#chart_h1 {
+  border:1px solid;
+  background-color:lightgreen;
+}
+
+#txt_div {
+  height:100px;
+  margin-top:1%;
+  background-color:rgba(223,240,216,1);
+  margin-bottom:1%;
+  border:1px solid;
+  color:rgba(60,118,61,1);
+}
+
+.footer-dark {
+  padding:50px 0;
+  color:#f0f9ff;
+  background-color:#282d32;
+}
+
+.col-sm-6.col-md-3.item {
+  text-align:center;
+  padding-bottom:20px;
+}
+
+.row {
+}
+
+#footer_row {
+  border:1px solid white;
+}
+
+#txt_p {
+  text-align:center;
+}
+
+#Charts {
+  color:white;
+}
+
+#login {
+  color:white;
+}
+
+#chart {
+  margin-left:10.5%;
+  height:627px;
+  width:80%;
+}
+
